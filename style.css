@@ -1,0 +1,64 @@
+/*　全体のデザイン */
+body {
+    font-family: sans-serif;
+    text-align: center;
+    background: color f 0f 0f 0;
+    padding: 20px;
+}
+
+/*画像を横並びにする*/
+.item-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/*アイテムの基本デザイン*/
+.item-box {
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    width: 120px;
+    text-align: center;
+    transition: all 0.5s ease; /*変化時の演出*/
+
+    /*最初のエフェクト*/
+    filter: grayscale(100%);
+    opacity: 0.5;
+}
+
+/*アイテムを入手したときのデザイン*/
+.item-box.got {
+    filter: grayscale(0%); /* カラーに戻す */
+    opacity: 1;            /* 明るさを100% */
+    border-color: #ff9800; 
+    background-color: #fffde7;
+    box-shadow: 0 0 10px rgba(255, 152, 0, 0.5); /* 光らせる */
+}
+
+/*画像を表示するエリアのサイズ*/
+.item-image-wrapper {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*実際の画像タグの調整*/
+.item-image {
+    max-width: 100%;   /* 横幅を枠に収める */
+    max-height: 100%;  /* 高さを枠に収める */
+    object-fit: contain; /* 縦横比を崩さない */
+}
+
+/*アイテム名のテキスト*/
+.name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
