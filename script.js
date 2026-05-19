@@ -1,37 +1,40 @@
 window.onload = function() {
 
-    // --- ① URLから「合言葉」を抜き出す ---
+    // ① URLから「?item=〇〇」の〇〇をチェックする
     const urlParams = new URLSearchParams(window.location.search);
-    const getParam = urlParams.get('item'); // 「?item=〇〇」の〇〇を取得
+    const getParam = urlParams.get('item'); 
 
-    // --- ② もしURLに合言葉があったら、スマホの保存箱にメモする ---
+    // ② 読み込んだ合言葉を保存する
     if (getParam) {
-        // 保存箱（LocalStorage）に「このアイテム=持ってる」と書き込む
         localStorage.setItem(getParam, "true");
     }
-    // --- ③ 保存箱をチェックして、持っているアイテムの画面を明るくする ---
-   
-    //カウンター
-    let gotcount = 0;
 
-    // --- ③ 保存箱をチェックして、持っているアイテムの画面を明るくする ---
-    // humanを持っているかチェック
-    if (localStorage.getItem("human") === "true") {
-        // HTMLの id="human" を見つけて、CSSの "got" クラスを合体させる
-        document.getElementById("human").classList.add("got");
-    }
+    // ゲットした数を数えるためのカウンター
+    let gotCount = 0;
 
-    // kabaを持っているかチェック
+    // ③ 「剣」を持っているかチェック
     if (localStorage.getItem("kaba") === "true") {
-        // HTMLの id="kaba" を見つけて、CSSの "got" クラスを合体させる
         document.getElementById("kaba").classList.add("got");
+        gotCount = gotCount + 1; // 持っていたらカウントを1増やす
     }
-    //  ⑤ 達成率の表示を更新する
-    // 画面の数字を書き換える (例: 1 / 2)
-    document.getElementById("progress-count").innerText = gotCount;
 
-    // メーターの長さを計算して伸ばす (0個なら0%、1個なら50%、2個なら100%)
-    const totalItems = 2; // アイテムの総数
-    const percent = (gotCount / totalItems) * 100;
-    document.getElementById("progress-bar").style.width = percent + "%";
+    // ④ 「盾」を持っているかチェック
+    if (localStorage.getItem("human") === "true") {
+        document.getElementById("human").classList.add("got");
+        gotCount = gotCount + 1; // 持っていたらカウントを1増やす
+    }
+    
+    // 画面の数字（0 / 2）を、実際のカウント（gotCount）に書き換える
+    const countElement = document.getElementById("progress-count");
+    if (countElement) {
+        countElement.innerText = gotCount;
+    }
+
+    // メーターの長さを計算して伸ばす
+    const barElement = document.getElementById("progress-bar");
+    if (barElement) {
+        const totalItems = 2; // アイテムの総数
+        const percent = (gotCount / totalItems) * 100;
+        barElement.style.width = percent + "%";
+    }
 }
