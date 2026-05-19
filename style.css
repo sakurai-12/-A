@@ -17,19 +17,19 @@ body {
     z-index: 100;
 }
 .school-logo {
-    height: 55px; 
+    height: 200px; 
     width: auto;
     object-fit: contain;
 }
 
 
 h1 {
-    font-size: 24px;
+    font-size: 50px;
     margin-bottom: 5px;
     color: #222;
 }
 p {
-    font-size: 14px;
+    font-size: 30px;
     color: #666;
     margin-bottom: 25px;
 }
