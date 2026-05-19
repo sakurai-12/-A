@@ -12,7 +12,7 @@ window.onload = function() {
 
     // --- ③ 保存箱をチェックして、持っているアイテムの画面を明るくする ---
     // 剣(sword)を持っているかチェック
-    if (localStorage.getItem("適当な画像") === "true") {
+    if (localStorage.getItem("human") === "true") {
         // HTMLの id="sword" を見つけて、CSSの "got" クラスを合体させる
         document.getElementById("human").classList.add("got");
     }
