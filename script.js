@@ -9,17 +9,29 @@ window.onload = function() {
         // 保存箱（LocalStorage）に「このアイテム=持ってる」と書き込む
         localStorage.setItem(getParam, "true");
     }
+    // --- ③ 保存箱をチェックして、持っているアイテムの画面を明るくする ---
+   
+    //カウンター
+    let gotcount = 0;
 
     // --- ③ 保存箱をチェックして、持っているアイテムの画面を明るくする ---
-    // 剣(sword)を持っているかチェック
+    // humanを持っているかチェック
     if (localStorage.getItem("human") === "true") {
-        // HTMLの id="sword" を見つけて、CSSの "got" クラスを合体させる
+        // HTMLの id="human" を見つけて、CSSの "got" クラスを合体させる
         document.getElementById("human").classList.add("got");
     }
 
-    // 盾(shield)を持っているかチェック
+    // kabaを持っているかチェック
     if (localStorage.getItem("kaba") === "true") {
-        // HTMLの id="shield" を見つけて、CSSの "got" クラスを合体させる
+        // HTMLの id="kaba" を見つけて、CSSの "got" クラスを合体させる
         document.getElementById("kaba").classList.add("got");
     }
+    //  ⑤ 達成率の表示を更新する
+    // 画面の数字を書き換える (例: 1 / 2)
+    document.getElementById("progress-count").innerText = gotCount;
+
+    // メーターの長さを計算して伸ばす (0個なら0%、1個なら50%、2個なら100%)
+    const totalItems = 2; // アイテムの総数
+    const percent = (gotCount / totalItems) * 100;
+    document.getElementById("progress-bar").style.width = percent + "%";
 }
