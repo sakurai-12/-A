@@ -37,4 +37,13 @@ window.onload = function() {
         const percent = (gotCount / totalItems) * 100;
         barElement.style.width = percent + "%";
     }
+
+    if (gotCount === 2) {
+        const clearScreen = document.getElementById("clear-screen");
+        if (clearScreen) {
+            // 隠すクラスを消して、表示するクラスをつける！
+            clearScreen.classList.remove("clear-hidden");
+            clearScreen.classList.add("clear-show");
+        }
+    }
 }

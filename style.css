@@ -123,3 +123,57 @@ p {
     font-weight: bold;
     color: #333;
 }
+/* 普段は非表示にするための設定 */
+.clear-hidden {
+    display: none;
+}
+
+/* 2個集まった時にJSでこのクラスをつけ、画面全体に表示させる */
+.clear-show {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* 背景を少し暗くして文字を目立たせる */
+    z-index: 999; /* 1番手前に表示 */
+    justify-content: center;
+    align-items: center;
+}
+
+/* おめでとうポップアップの白い箱 */
+.clear-content {
+    background-color: #fff;
+    padding: 40px 20px;
+    border-radius: 24px;
+    width: 85%;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(255, 152, 0, 0.5);
+    border: 5px solid #ff9800;
+    animation: popIn 0.4s ease-out; /* 出現時のアニメーション */
+}
+
+/* ポップアップ内の文字サイズ設定 */
+.clear-content h2 {
+    font-size: 45px !important; /* ドカンと大文字 */
+    color: #ff9800;
+    margin: 0 0 20px 0;
+}
+.clear-msg {
+    font-size: 28px !important;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+.clear-sub {
+    font-size: 22px !important;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* 画面がパッと大きくなって現れるアニメーション効果 */
+@keyframes popIn {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
