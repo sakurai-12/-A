@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>文化祭スタンプラリー</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="school-header">
+        <img src="img/logo.png" alt="学校マーク" class="school-logo">
+    </div>
+
+    <h1>画像コレクション</h1>
+    <p>各ブースにあるqrコードを読み取って画像を集めよう‼</p>
+
+    <!-- 達成率 -->
+    <div class="progress-container">
+        <div class="progress-text">集めたアイテム: <span id="progress-count">0</span> / 2 個</div>
+        <div class="progress-bar-bg">
+            <div id="progress-bar" class="progress-bar-fill"></div>
+        </div>
+    </div>
+
+    <!-- アイテムの一覧 -->
+    <div class="item-container">
+        
+        <div id="human" class="item-box">
+            <div class="item-image-wrapper">
+                <img src="img/human.png" alt="画像素材" class="item-image">
+            </div>
+            <div class="name">画像素材</div>
+        </div>
+
+        <div id="kaba" class="item-box">
+            <div class="item-image-wrapper">
+                <img src="img/kaba.jpg" alt="かば" class="item-image">
+            </div>
+            <div class="name">画像素材</div>
+        </div>
+    </div>
+
+    <div id="clear-screen" class="clear-hidden">
+        <div class="clear-content">
+            <h2>🎉 COMPLETE！ 🎉</h2>
+            <p class="clear-msg">すべての画像を集めたよ！</p>
+            <p class="clear-sub">この画面をブースの受付に見せて、<br>景品をゲットしよう！</p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

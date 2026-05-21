@@ -1,0 +1,179 @@
+/* 全体のデザイン */
+body {
+    font-family: sans-serif;
+    text-align: center;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* 🌟学校マークを左端にドカンと配置するエリア */
+.school-header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start; /* 🌟これで完全に「左寄せ」になります */
+    margin-bottom: 20px;
+}
+.school-logo {
+    height: 200px;    /* 🌟あなたの指定した200px！ */
+    max-width: 90%;   /* スマホの画面からはみ出さないための保険 */
+    width: auto;
+    object-fit: contain;
+}
+
+/* 🌟あなたの指定したサイズの大文字テキスト */
+h1 {
+    font-size: 50px;  /* 🌟50pxの大迫力タイトル */
+    text-align: center;
+    margin: 10px 0;
+    color: #222;
+}
+p {
+    font-size: 30px;  /* 🌟30pxの大きな説明文 */
+    text-align: center;
+    color: #666;
+    margin-bottom: 35px;
+}
+
+/* 達成率エリア */
+.progress-container {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 90%; 
+    margin: 0 auto 35px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-sizing: border-box;
+}
+.progress-text {
+    font-size: 24px; /* 🌟文字が大きいので、ここも少し大きく調整しました */
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #333;
+}
+.progress-bar-bg {
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    height: 20px; /* 🌟少し太くして見やすく */
+    width: 100%;
+    overflow: hidden;
+}
+.progress-bar-fill {
+    background-color: #4caf50;
+    height: 100%;
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+/* アイテムを並べるエリア */
+.item-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    max-width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* アイテムボックス */
+.item-box {
+    background-color: #fff;
+    border: 3px solid #ddd; 
+    border-radius: 16px;   
+    padding: 20px 10px;
+    flex: 1;                
+    max-width: 180px; /* 🌟文字が大きいので、箱の最大幅も少し広げました */      
+    text-align: center;
+    transition: all 0.5s ease;
+    filter: grayscale(100%);
+    opacity: 0.5;
+    box-sizing: border-box;
+}
+
+/* アイテムをゲットした時用のデザイン */
+.item-box.got {
+    filter: grayscale(0%);
+    opacity: 1;
+    border-color: #ff9800;
+    background-color: #fffde7;
+    box-shadow: 0 6px 15px rgba(255, 152, 0, 0.3); 
+}
+
+/* 画像を表示するエリア */
+.item-image-wrapper {
+    width: 100%;
+    height: 140px; /* 🌟箱に合わせて少し高く */
+    margin: 0 auto 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 実際の画像タグ */
+.item-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* アイテム名のテキスト */
+.name {
+    font-size: 18px; /* 🌟少し大きく */
+    font-weight: bold;
+    color: #333;
+}
+/* 普段は非表示にするための設定 */
+.clear-hidden {
+    display: none;
+}
+
+/* 2個集まった時にJSでこのクラスをつけ、画面全体に表示させる */
+.clear-show {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* 背景を少し暗くして文字を目立たせる */
+    z-index: 999; /* 1番手前に表示 */
+    justify-content: center;
+    align-items: center;
+}
+
+/* おめでとうポップアップの白い箱 */
+.clear-content {
+    background-color: #fff;
+    padding: 40px 20px;
+    border-radius: 24px;
+    width: 85%;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(255, 152, 0, 0.5);
+    border: 5px solid #ff9800;
+    animation: popIn 0.4s ease-out; /* 出現時のアニメーション */
+}
+
+/* ポップアップ内の文字サイズ設定 */
+.clear-content h2 {
+    font-size: 45px !important; /* ドカンと大文字 */
+    color: #ff9800;
+    margin: 0 0 20px 0;
+}
+.clear-msg {
+    font-size: 28px !important;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+.clear-sub {
+    font-size: 22px !important;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* 画面がパッと大きくなって現れるアニメーション効果 */
+@keyframes popIn {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
